@@ -50,7 +50,6 @@ def extract_details(text):
     return car_listing
 
 # Function to send WhatsApp message with car details
-"""
 def send_whatsapp_message(car_details):
     account_sid = ''
     auth_token = ''
@@ -74,8 +73,8 @@ def send_whatsapp_message(car_details):
         to='whatsapp:+97455741660',
     )
     print(message.sid)
-"""
 def main():
+    print("STARTED")
     previous_listings = []
     for page in range(1, 2):
         previous_listings.extend(get_car_listings(page))
@@ -95,8 +94,6 @@ def main():
         if new_listings:
             for car in new_listings:
                 print(f"New car listing: {car}")
-                #send_whatsapp_message(car)
+                send_whatsapp_message(car)
             previous_listings = current_listings
-
-if __name__ == "__main__":
-    main()
+main()
